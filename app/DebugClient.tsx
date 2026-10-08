@@ -67,7 +67,7 @@ export default function DebugClient({ serverInfo }: { serverInfo: Record<string,
 
   }, []);
 
-  if (!mounted) return <div className="p-8 text-center text-gray-500">Loading Application...</div>;
+  if (!mounted) return <div className="p-8 text-center text-purple-500">Loading Application...</div>;
 
   const copyToClipboard = () => {
     const data = {
@@ -83,13 +83,14 @@ export default function DebugClient({ serverInfo }: { serverInfo: Record<string,
 
   return (
     <div className="space-y-8 font-sans pb-12">
-      <div className="text-center">
-        <h1 className="text-3xl md:text-5xl font-bold uppercase tracking-wider mb-2 text-gray-900">AWS Amplify</h1>
-        <h2 className="text-xl md:text-2xl text-gray-600 uppercase tracking-widest">Wildcard Subdomain Test</h2>
+      <div className="text-center flex flex-col items-center">
+        <img src="https://demo.querysure.com/querysure.png" alt="QuerySure Logo" className="h-12 md:h-16 mb-6" />
+        <h1 className="text-3xl md:text-5xl font-bold tracking-wider mb-2 text-purple-900">QuerySure</h1>
+        <h2 className="text-xl md:text-2xl text-purple-700 uppercase tracking-widest">Multi Tenant Checker !</h2>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
-        <h3 className="text-lg font-bold mb-4 uppercase text-gray-800">Test Status</h3>
+      <div className="bg-white shadow-md rounded-lg p-6 border border-purple-200">
+        <h3 className="text-lg font-bold mb-4 uppercase text-purple-900">Test Status</h3>
         <ul className="space-y-2 font-mono text-sm">
           <li className="text-green-600 font-semibold">✓ Application loaded</li>
           <li className="text-green-600 font-semibold">✓ Hostname detected: {browserInfo["window.location.hostname"]}</li>
@@ -104,24 +105,24 @@ export default function DebugClient({ serverInfo }: { serverInfo: Record<string,
 
       <div className="grid md:grid-cols-2 gap-8">
         <div>
-          <h3 className="text-lg font-bold mb-4 uppercase border-b pb-2 text-gray-800">Browser Information</h3>
-          <div className="bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm space-y-2 shadow-inner">
+          <h3 className="text-lg font-bold mb-4 uppercase border-b border-purple-200 pb-2 text-purple-900">Browser Information</h3>
+          <div className="bg-purple-950 text-purple-300 p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm space-y-2 shadow-inner">
             {Object.entries(browserInfo).map(([k, v]) => (
               <div key={k} className="flex flex-col sm:flex-row sm:gap-2">
-                <span className="text-gray-400 shrink-0">{k}:</span> 
-                <span className="break-all">{v}</span>
+                <span className="text-purple-400 shrink-0">{k}:</span> 
+                <span className="text-purple-100 break-all">{v}</span>
               </div>
             ))}
           </div>
         </div>
 
         <div>
-          <h3 className="text-lg font-bold mb-4 uppercase border-b pb-2 text-gray-800">Server Information</h3>
-          <div className="bg-gray-900 text-blue-400 p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm space-y-2 shadow-inner">
+          <h3 className="text-lg font-bold mb-4 uppercase border-b border-purple-200 pb-2 text-purple-900">Server Information</h3>
+          <div className="bg-purple-950 text-purple-300 p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm space-y-2 shadow-inner">
             {Object.entries(serverInfo).map(([k, v]) => (
               <div key={k} className="flex flex-col sm:flex-row sm:gap-2">
-                <span className="text-gray-400 shrink-0">{k}:</span> 
-                <span className="break-all">{v}</span>
+                <span className="text-purple-400 shrink-0">{k}:</span> 
+                <span className="text-purple-100 break-all">{v}</span>
               </div>
             ))}
           </div>
@@ -129,16 +130,16 @@ export default function DebugClient({ serverInfo }: { serverInfo: Record<string,
       </div>
 
       <div>
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b pb-2 mb-4 gap-4">
-          <h3 className="text-lg font-bold uppercase text-gray-800">Debug Log</h3>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-purple-200 pb-2 mb-4 gap-4">
+          <h3 className="text-lg font-bold uppercase text-purple-900">Debug Log</h3>
           <button 
             onClick={copyToClipboard}
-            className="bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-gray-800 transition-colors shadow-sm active:scale-95"
+            className="bg-purple-700 text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-purple-800 transition-colors shadow-sm active:scale-95"
           >
             Copy Debug Information
           </button>
         </div>
-        <div className="bg-gray-100 p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm text-gray-800 space-y-2 border border-gray-300 shadow-inner">
+        <div className="bg-purple-100 p-4 rounded-lg overflow-x-auto font-mono text-xs md:text-sm text-purple-900 space-y-2 border border-purple-300 shadow-inner">
           {logs.map((log, i) => (
             <div key={i}>{log}</div>
           ))}
